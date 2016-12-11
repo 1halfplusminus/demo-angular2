@@ -15,6 +15,8 @@ import { ResetMotPasseFormComponent } from './form/reset-mot-passe-form.componen
 import { MdInputValidDirective } from './form/md-input-valid.directive'
 import { FormValidityDirective }  from './form/form-validity.directive'
 import { AuthService }            from './authentification.service'
+import { ResetMotPasseService }   from './reset-mot-passe.service'
+
 import { LoginProvider } from "./core/login.provider"
 import { LayoutModule }   from '../layout/layout.module'
 import { SharedModule } from '../shared/shared.module'
@@ -35,7 +37,8 @@ require('./assets/connexion-background.jpg')
     ],
     providers:[
         AuthService,
-        LoginProvider
+        LoginProvider,
+        ResetMotPasseService
     ],
     declarations:[
         ConnexionComponent,

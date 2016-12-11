@@ -5,4 +5,4 @@ services:
     volumes:
         - ../:/usr/src/app:rw
     ports:
-        - "80:8080"
+        - "8080:8080"

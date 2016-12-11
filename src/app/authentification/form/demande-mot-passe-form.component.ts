@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core'
+import {Component, OnInit, Output, EventEmitter} from '@angular/core'
 import {FormGroup, FormBuilder, Validators} from "@angular/forms";
+import {ResetMotPasseService} from "../reset-mot-passe.service";
 
 
 @Component({
@@ -11,10 +12,12 @@ import {FormGroup, FormBuilder, Validators} from "@angular/forms";
 export class DemandeMotPasseFormComponent implements OnInit {
     model = {email:''}
     form: FormGroup
-    formErrors : {email}
+    formErrors : {email,problemeConnexion?}
     formValidations: {email}
+    valid: boolean = false
+    @Output() onDemande = new EventEmitter<boolean>();
 
-    constructor(private fb: FormBuilder){
+    constructor(private fb: FormBuilder,private resetMotPasseService: ResetMotPasseService){
 
     }
     ngOnInit(){
@@ -23,5 +26,18 @@ export class DemandeMotPasseFormComponent implements OnInit {
         this.form = this.fb.group({
             email:[this.model.email,Validators.required]
         })
+    }
+    onSubmit(){
+        this.formErrors.problemeConnexion = null
+        if(!this.valid)
+        {
+            this.resetMotPasseService.demanderMotPasse(this.model.email).subscribe(()=>{
+                this.onDemande.emit(true)
+                this.valid = true
+            },()=>{
+                console.log('here')
+                this.formErrors.problemeConnexion = 'Impossible de se connecter au serveur'
+            })
+        }
     }
 }

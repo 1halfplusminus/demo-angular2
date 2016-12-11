@@ -7,6 +7,7 @@
       form-validity
       [(formErrors)]="formErrors"
       [(validationMessages)]="formValidations"
+      (ngSubmit)="onSubmit()"
 >
     <md-input id="email" name="email"
               fx-flex="100" placeholder="Email"
@@ -44,10 +45,11 @@
             md-input-validity.validator="mismatchedPasswords"
     >
         <md-hint class="md-warn">
-            {{formErrors.motPasseConfirmation || formErrors.mismatchedPasswords}}
+            {{formErrors.motPasseConfirmation || formErrors.mismatchedPasswords || formErrors.problemeConnexion}}
         </md-hint>
     </md-input>
     <button fx-flex="80" fx-flex.xs="100" md-raised-button color="primary">
         Changez mon mot de passe
     </button>
+
 </form>

@@ -1,11 +1,9 @@
 import { NgModule }             from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {AuthentificationModule} from "./authentification/authentification.module";
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'connexion', pathMatch: 'full'},
-    {   path: 'connexion',
-        loadChildren: './app.module.ts#AuthentificationModule?sync=true'
-    }
+    {   path: '',component:AuthentificationModule }
 ];
 
 @NgModule({
