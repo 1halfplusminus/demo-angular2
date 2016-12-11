@@ -1,0 +1,19 @@
+<div fx-layout="row" fx-flex fx-flex-fill>
+    <div [fx-flex-order]="orderNavBar()" fx-layout="column" fx-layout-align="top center"
+         [fx-flex]="sideNavFlex?sideNavFlex:12"
+         [fx-flex.xs]="sideNavFlexXs?sideNavFlexXs:12"
+         [fx-flex.sm]="sideNavFlexSm?sideNavFlexSm:20"
+         fx-flex-fill>
+        <div fx-layout="row" fx-layout-align="center start" fx-flex-fill>
+            <ng-content select="nav"></ng-content>
+        </div>
+    </div>
+    <div
+         [fx-flex-order]="orderMain()"
+         fx-layout="column"
+         fx-layout-align="top center"
+         fx-flex-fill
+         fx-flex="100">
+        <ng-content select="main"></ng-content>
+    </div>
+</div>

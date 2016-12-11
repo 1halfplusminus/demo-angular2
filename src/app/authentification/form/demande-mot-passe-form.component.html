@@ -1,0 +1,23 @@
+<form fx-flex="100" fx-flex-fill  fx-layout="row" fx-layout-wrap form-validity
+      [(formErrors)]="formErrors"
+      [(validationMessages)]="formValidations"
+      [formGroup]="form">
+    <md-input
+              required
+              [md-input-validity]="form"
+              type="email"
+              placeholder="Email"
+              fx-flex="100"
+              formControlName="email"
+        >
+        <md-hint >
+            {{formErrors.email}}
+        </md-hint>
+    </md-input>
+    <button fx-flex="90" fx-flex.xs="100" md-raised-button color="primary">
+        Demandez un nouveau mot passe
+    </button>
+    <a fx-flex="100" routerLink="/">
+        Retournez à la page de connexion
+    </a>
+</form>

@@ -1,0 +1,53 @@
+<form fx-flex="100"
+      fx-flex-fill
+      fx-layout="row"
+      fx-layout-wrap
+      autocomplete="off"
+      [formGroup]="form"
+      form-validity
+      [(formErrors)]="formErrors"
+      [(validationMessages)]="formValidations"
+>
+    <md-input id="email" name="email"
+              fx-flex="100" placeholder="Email"
+              type="email"
+              required
+              formControlName="email"
+              [md-input-validity]="form"
+    >
+        <md-hint>
+            {{formErrors.email}}
+        </md-hint>
+    </md-input>
+    <md-input
+              id="motPasse" name="motPasse"
+              fx-flex="100" placeholder="Mot de passe"
+              type="password"
+              autocomplete="new-password"
+              formControlName="motPasse"
+              required
+              [md-input-validity]="form"
+              md-input-validity.validator="mismatchedPasswords"
+    >
+        <md-hint>
+            {{formErrors.motPasse}}
+        </md-hint>
+    </md-input>
+    <md-input
+            id="motPasseConfirmation" name="motPasseConfirmation"
+            fx-flex="100"
+            placeholder="Mot de passe (Confirmation)"
+            formControlName="motPasseConfirmation"
+            type="password"
+            required
+            [md-input-validity]="form"
+            md-input-validity.validator="mismatchedPasswords"
+    >
+        <md-hint class="md-warn">
+            {{formErrors.motPasseConfirmation || formErrors.mismatchedPasswords}}
+        </md-hint>
+    </md-input>
+    <button fx-flex="80" fx-flex.xs="100" md-raised-button color="primary">
+        Changez mon mot de passe
+    </button>
+</form>

@@ -1,0 +1,29 @@
+<form [formGroup]="form" form-validity [(formErrors)]="formErrors" [(validationMessages)]="formValidations" (ngSubmit)="onSubmit()">
+    <md-input
+              required
+              [md-input-validity]="form"
+              type="email"
+              id="email"
+              formControlName="email"
+              placeholder="Email">
+        <md-hint>
+            {{formErrors.email}}
+        </md-hint>
+    </md-input>
+    <md-input
+              required
+              [md-input-validity]="form"
+              type="password"
+              placeholder="Mot de passe"
+              formControlName="motPasse"
+    >
+        <md-hint class="md-warn">
+            {{formErrors.motPasse || formErrors.invalidCreds}}
+        </md-hint>
+    </md-input>
+    <div class="mot-passe-oublie-wrapper">
+        <a routerLink="mot-passe-oublie">Mot de pase oublié?</a>
+    </div>
+    <button md-raised-button color="primary">Se connecter</button>
+</form>
+<md-progress-circle *ngIf="isLoading"  style="text-align: center;" mode="indeterminate" color="primary"></md-progress-circle>

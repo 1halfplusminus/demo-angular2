@@ -1,0 +1,30 @@
+//Formulaire
+md-input{
+  width: 100%;
+}
+md-input {
+  margin: 15px 0px 0px;
+  height: 70px;
+}
+md-hint{
+  font-size: 11px;
+}
+.mot-passe-oublie-wrapper > a{
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+.mot-passe-oublie-wrapper{
+  text-align: right;
+  padding: 5px;
+  margin-top: 8px;
+}
+[md-raised-button]{
+  width: 100%;
+  margin-top: 16px;
+}
+md-progress-circle{
+  margin: auto;
+  margin-top: 15px;
+}
