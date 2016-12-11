@@ -35,7 +35,6 @@ export class DemandeMotPasseFormComponent implements OnInit {
                 this.onDemande.emit(true)
                 this.valid = true
             },()=>{
-                console.log('here')
                 this.formErrors.problemeConnexion = 'Impossible de se connecter au serveur'
             })
         }
