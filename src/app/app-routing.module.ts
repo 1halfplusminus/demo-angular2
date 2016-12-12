@@ -1,9 +1,14 @@
 import { NgModule }             from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {AuthentificationModule} from "./authentification/authentification.module";
 
 export const routes: Routes = [
-    {   path: '',component:AuthentificationModule }
+    { path: '', redirectTo: 'connexion', pathMatch: 'full'},
+    {
+        path: 'connexion', loadChildren: './authentification/authentification.module#AuthentificationModule'
+    },
+    {
+        path: 'profil',  loadChildren: './utilisateur/utilisateur.module#UtilisateurModule'
+    }
 ];
 
 @NgModule({

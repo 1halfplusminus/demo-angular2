@@ -19,7 +19,7 @@ export class ResetMotPasseService{
         }
 
     }
-    resetMotPasse(nouveauMotPasse: string,confirmationMotPasse : string)
+    resetMotPasse(token:string,nouveauMotPasse:string,confirmationMotPasse:string) : Observable <any>
     {
         if(Math.random() >= 0.5)
         {

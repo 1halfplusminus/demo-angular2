@@ -14,7 +14,7 @@ export class DemandeMotPasseFormComponent implements OnInit {
     form: FormGroup
     formErrors : {email,problemeConnexion?}
     formValidations: {email}
-    valid: boolean = false
+    submitted: boolean = false
     @Output() onDemande = new EventEmitter<boolean>();
 
     constructor(private fb: FormBuilder,private resetMotPasseService: ResetMotPasseService){
@@ -29,14 +29,24 @@ export class DemandeMotPasseFormComponent implements OnInit {
     }
     onSubmit(){
         this.formErrors.problemeConnexion = null
-        if(!this.valid)
+        if(!this.submitted && this.form.valid)
         {
-            this.resetMotPasseService.demanderMotPasse(this.model.email).subscribe(()=>{
-                this.onDemande.emit(true)
-                this.valid = true
-            },()=>{
-                this.formErrors.problemeConnexion = 'Impossible de se connecter au serveur'
+            this.resetMotPasseService.demanderMotPasse(this.form.controls['email'].value).subscribe(()=>{
+                this.validate()
+            },(status)=>{
+                if(status != 404)
+                {
+                    this.formErrors.problemeConnexion = 'Impossible de se connecter au serveur'
+                }else{
+                    this.validate()
+                }
+
             })
         }
+    }
+    private validate()
+    {
+        this.onDemande.emit(true)
+        this.submitted = true
     }
 }

@@ -8,21 +8,30 @@ import  { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { LayoutModule } from './layout/layout.module'
 import { SharedModule } from './shared/shared.module'
-import { AuthentificationModule } from './authentification/authentification.module'
-import { PayeLoginProvider } from './core/login.provider'
+import { HttpAuthService} from './core/http-authentification.service'
+
+//Auth
+import { AuthService } from './authentification/authentification.service'
 import { PayeHttpClient } from './core/http-client.module'
+import { ResetMotPasseService }from './authentification/reset-mot-passe.service'
+import { HttpResetMotPasseService } from './core/http-reset-mot-passe.service'
 @NgModule({
     imports: [
         BrowserModule,
         LayoutModule,
-        AuthentificationModule.forRoot(PayeLoginProvider),
         MaterialModule.forRoot(),
         FlexLayoutModule.forRoot(),
         SharedModule,
         AppRoutingModule
     ],
     providers:[
-        PayeHttpClient
+        PayeHttpClient,
+        {
+            provide:AuthService,useClass: HttpAuthService
+        },
+        {
+            provide:ResetMotPasseService,useClass: HttpResetMotPasseService
+        }
     ],
     declarations: [
         AppComponent

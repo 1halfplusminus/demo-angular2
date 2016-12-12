@@ -1,30 +1,40 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import {Observable} from "rxjs";
-import {LoginProvider} from "./core/login.provider";
+import {Observable, Subject} from "rxjs";
 
+const loggedIn = 'logged_in'
 @Injectable()
 export class AuthService{
 
     private loggedIn = false
 
-    constructor(private router:Router,private loginProvider:LoginProvider)
+    constructor(private router:Router)
     {
-        this.loggedIn= !!localStorage.getItem('auth_token')
+        this.loggedIn = localStorage.getItem(loggedIn) != null
     }
 
     login(creds) : Observable<any>
     {
-        return this.loginProvider.login(creds);
-    }
+        if(Math.random() >= 0.5)
+        {
+            this.loggedIn = true
+            return Observable.of("legacy")
+        }
+        else{
+            return Observable.throw(false)
+        }
 
+    }
     logout()
     {
-        localStorage.removeItem('auth_token')
+        localStorage.removeItem(loggedIn)
         this.loggedIn = false;
     }
-
-    isLoggedIn(){
+    isLoggedIn() : boolean {
         return this.loggedIn
+    }
+    onLogin() : Observable<any>
+    {
+        return Observable.of(true)
     }
 }

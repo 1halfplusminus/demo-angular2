@@ -48,8 +48,7 @@
             {{formErrors.motPasseConfirmation || formErrors.mismatchedPasswords || formErrors.problemeConnexion}}
         </md-hint>
     </md-input>
-    <button fx-flex="80" fx-flex.xs="100" md-raised-button color="primary">
+    <button [disabled]="!form.valid" fx-flex="80" fx-flex.xs="100" md-raised-button color="primary">
         Changez mon mot de passe
     </button>
-
 </form>

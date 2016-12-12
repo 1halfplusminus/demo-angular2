@@ -7,7 +7,7 @@
                         B
                     </div>
                 </md-card-subtitle>
-                <md-card-title  >Bienvenu sur le portail agent BFC !</md-card-title>
+                <md-card-title  >Bienvenue sur le portail agent BFC !</md-card-title>
             </md-card>
         </div>
 
@@ -18,7 +18,7 @@
                 Connectez-vous à votre compte
             </md-card-title>
             <div fx-flex="80" fx-layout="column" fx-flex-fill>
-                <connexion-form>
+                <connexion-form (onLogin)="onLogin()">
 
                 </connexion-form>
             </div>

@@ -1,4 +1,4 @@
-import {Component, OnInit, Attribute, Output, EventEmitter} from '@angular/core'
+import {Component, OnInit, Attribute, Output, EventEmitter, Input} from '@angular/core'
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ResetMotPasseService} from "../reset-mot-passe.service";
 
@@ -14,6 +14,7 @@ export class ResetMotPasseFormComponent implements OnInit {
     formValidations: {email?,motPasse?,motPasseConfirmation?,mismatchedPasswords}
     valid: boolean = false
     form : FormGroup
+    @Input() token: string
     @Output() onReset: EventEmitter<any> = new EventEmitter()
 
     constructor(private fb:FormBuilder,private resetMotPasseService: ResetMotPasseService){}
@@ -30,16 +31,23 @@ export class ResetMotPasseFormComponent implements OnInit {
             },{validator: this.matchingPasswords('motPasse', 'motPasseConfirmation')})
     }
     onSubmit(){
-        let {valid,resetMotPasseService,formErrors,form,model,onReset} = this
-        formErrors.problemeConnexion = null
+        let {valid,resetMotPasseService,formErrors,form,model,onReset,token} = this
+        this.formErrors.problemeConnexion = null
         if(!valid)
         {
-            resetMotPasseService.resetMotPasse(model.email,model.motPasse).subscribe(()=>{
+            model = form.value
+            resetMotPasseService.resetMotPasse(token,model.motPasseConfirmation,model.motPasse).subscribe(()=>{
                 valid= true
                 form.reset()
                 onReset.emit(true)
-            },()=>{
-                formErrors.problemeConnexion = 'Impossible de se connecter au serveur'
+            },(err)=>{
+                if(err == 401)
+                {
+                    formErrors.problemeConnexion = 'Token invalide.'
+                }else{
+                    formErrors.problemeConnexion = 'Impossible de se connecter au serveur'
+                }
+
             })
         }
     }
@@ -47,7 +55,7 @@ export class ResetMotPasseFormComponent implements OnInit {
         return (group: FormGroup): {[key: string]: any} => {
             let password = group.controls[passwordKey];
             let confirmPassword = group.controls[confirmPasswordKey];
-
+            console.log(password,confirmPassword)
             if (password.value !== confirmPassword.value) {
                 return {
                     mismatchedPasswords: true

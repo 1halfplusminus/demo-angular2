@@ -1,11 +1,11 @@
-import {Component, OnInit, Input} from '@angular/core'
-import {FormBuilder, FormGroup, Validator, Validators} from "@angular/forms"
+import {Component, OnInit, Output, EventEmitter} from '@angular/core'
+import {FormBuilder, FormGroup,Validators} from "@angular/forms"
 import {AuthService} from "../authentification.service"
 
 @Component({
     selector:'connexion-form',
     templateUrl: 'connexion-form.component.html',
-    styleUrls: ['connexion-form.scss'],
+    styleUrls: ['connexion-form.component.scss'],
 })
 export class ConnexionFormComponent implements OnInit {
     model = {email:'',motPasse:''}
@@ -26,29 +26,33 @@ export class ConnexionFormComponent implements OnInit {
                 'motPasse': [this.model.motPasse]
             })
         this.form.valueChanges.subscribe(()=>{
-            console.log('here')
             this.formErrors.invalidCreds = null
         })
     }
     onSubmit()
     {
-        this.isLoading = true
-        setTimeout(()=>{
-            return this.authService.login(this.model).subscribe((res)=>{
-                this.isLoading = false
-            },(err)=>{
-                this.isLoading = false
-                switch (err)
-                {
-                    case 400:
-                        this.formErrors.invalidCreds = 'Nom d’utilisateur ou mot de passe invalide.'
-                        break;
-                    default:
-                        this.formErrors.invalidCreds = 'Impossible de se connecter au serveur'
-                        break
-                }
-            })
-        },600)
+        let {form,authService,formErrors,model} = this
+        if(form.valid)
+        {
+            model = form.value
+            this.isLoading = true
+            setTimeout(()=>{
+                return authService.login(model).subscribe(()=>{
+                },(err)=>{
+                    this.isLoading = false
+                    switch (err)
+                    {
+                        case 400:
+                            formErrors.invalidCreds = 'Nom d’utilisateur ou mot de passe invalide.'
+                            break;
+                        default:
+                            formErrors.invalidCreds = 'Impossible de se connecter au serveur'
+                            break
+                    }
+                })
+            },600)
+        }
+
 
     }
 }

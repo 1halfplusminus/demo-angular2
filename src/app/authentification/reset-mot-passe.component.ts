@@ -1,14 +1,28 @@
-import { Component } from '@angular/core'
+import {Component, OnInit, OnDestroy} from '@angular/core'
 import {MdSnackBar, MdSnackBarRef} from "@angular/material";
-import {Router} from "@angular/router";
+import {Router, ActivatedRoute} from "@angular/router";
+import {Subscription} from "rxjs";
 
 @Component({
     templateUrl: './reset-mot-passe.component.html',
     styleUrls: ['./reset-mot-passe.component.scss'],
     providers: [MdSnackBar]
 })
-export class ResetMotPasseComponent  {
-    constructor(private snackBar: MdSnackBar,private router:Router) {}
+export class ResetMotPasseComponent implements OnInit,OnDestroy {
+
+    private subscription : Subscription
+    private token: string
+    constructor(private snackBar: MdSnackBar,private activatedRoute: ActivatedRoute,private router: Router) {}
+    ngOnInit()
+    {
+        this.subscription =  this.activatedRoute.queryParams.subscribe((param:any)=>{
+            this.token = param['token']
+        })
+    }
+    ngOnDestroy()
+    {
+        this.subscription.unsubscribe()
+    }
     onReset()
     {
         const {snackBar} = this
@@ -16,6 +30,6 @@ export class ResetMotPasseComponent  {
         setTimeout(()=> {
             snackBarRef.dismiss()
             this.router.navigate(['/'])
-        },2000)
+        },5000)
     }
 }
