@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
 
-import './assets/header-bg.png'
+import './assets/header-bg.jpg'
 
 @Component({
     templateUrl: './profil.component.html',

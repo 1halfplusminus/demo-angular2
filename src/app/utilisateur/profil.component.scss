@@ -6,16 +6,16 @@
 }
 .header{
   padding: 24px;
-  background-image: url(/assets/header-bg.png);
-  background-size: cover;
+  background: url(/assets/header-bg.jpg) 0 45% no-repeat;
+  background-size: 100% auto;
   height: 320px;
   min-height: 320px;
   max-height: 320px;
-  background-color: #039be5;
 }
 .topbar{
   max-height: 10%;
   box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
+  margin-bottom: 2px;
 }
 .name{
   font-size: 34px;
