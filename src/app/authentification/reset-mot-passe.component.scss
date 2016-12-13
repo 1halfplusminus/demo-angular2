@@ -1,1 +1,4 @@
-@import 'layout/center-layout.component';
+@import 'core/center-layout.component';
+app-auth-page-reset{
+  @include app-auth-center-layout()
+}

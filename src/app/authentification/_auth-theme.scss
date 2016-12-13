@@ -1,0 +1,19 @@
+@import "core/variables";
+
+@mixin app-auth-theme($theme,$background-image)
+{
+  @each $page in $pages {
+    app-auth-page-#{$page}
+    {
+      main{
+        background: url($background-image) no-repeat;
+      }
+    }
+  }
+  //app-auth-page-reset {
+  //  @include main-background($background-image)
+  //}
+  //app-auth-page-oublie {
+  //  @include main-background($background-image)
+  //}
+}

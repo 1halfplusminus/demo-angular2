@@ -5,7 +5,7 @@ import {FormGroup, AbstractControl} from "@angular/forms";
 @Directive({
     selector: '[md-input-validity]'
 })
-export class MdInputValidDirective implements OnInit {
+export class MdInputValidyDirective implements OnInit {
 
     @Input('md-input-validity') formGroup :FormGroup
     @Input('formControlName') id : string

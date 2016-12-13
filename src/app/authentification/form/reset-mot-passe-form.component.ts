@@ -55,7 +55,6 @@ export class ResetMotPasseFormComponent implements OnInit {
         return (group: FormGroup): {[key: string]: any} => {
             let password = group.controls[passwordKey];
             let confirmPassword = group.controls[confirmPasswordKey];
-            console.log(password,confirmPassword)
             if (password.value !== confirmPassword.value) {
                 return {
                     mismatchedPasswords: true

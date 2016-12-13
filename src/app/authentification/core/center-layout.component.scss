@@ -1,0 +1,33 @@
+@import "commun";
+
+@mixin app-auth-center-layout()
+{
+  md-card{
+    margin: 0px 10px;
+    padding: 32px 27px;
+  }
+  md-card-content{
+    padding: 30px 5px;
+  }
+  md-card-title{
+    text-align: center;
+    font-size: 17px;
+    margin: 0px;
+  }
+  md-card-subtitle{
+    text-align: center;
+  }
+  button{
+    margin: 30px auto;
+  }
+  .logo{
+    margin: 32px;
+  }
+  a{
+    text-align: center;
+  }
+
+  md-card-actions{
+    text-align: center;
+  }
+}

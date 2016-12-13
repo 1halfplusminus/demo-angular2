@@ -1,5 +1,8 @@
-@import 'layout/center-layout.component';
-a{
-  text-align: center;
-  margin-top: 10px;
+@import 'core/center-layout.component';
+app-auth-page-oublie{
+  a{
+    text-align: center;
+    margin-top: 10px;
+  }
+  @include app-auth-center-layout()
 }

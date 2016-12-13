@@ -1,26 +1,28 @@
-@import "layout/commun";
+@import "core/commun";
 
-.container{
-  margin: auto;
-}
+app-auth-page-connexion{
+  .container{
+    margin: auto;
+  }
+  main md-card{
+    background-color: transparent;
+    box-shadow:none;
+    padding: 128px;
+  }
+  main md-card-title {
+    font-weight: 300;
+    font-size: 42px;
+  }
+  main md-card-subtitle{
+    margin-bottom: 0px;
+  }
+  nav md-card{
+    padding: 128px 48px 48px;
+  }
+  nav md-card-title{
+    font-size: 21px;
+    font-weight: 300;
+  }
 
-.md-accent-bg{
-  background-color: rgb(3,155,229);
-}
-main md-card{
-  background-color: transparent;
-  box-shadow:none;
-  padding: 128px;
-}
-main md-card-title {
-  font-weight: 300;
-  font-size: 42px;
-}
-nav md-card{
-  padding: 128px 48px 48px;
-}
-nav md-card-title{
-  font-size: 21px;
-  font-weight: 300;
 }
 

@@ -1,0 +1,13 @@
+
+
+@mixin app-topbar-theme($background-color,$color)
+{
+  app-topbar{
+    md-toolbar{
+      background-color: $background-color;
+    }
+    md-icon{
+      color: $color;
+    }
+  }
+}

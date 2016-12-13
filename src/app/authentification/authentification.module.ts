@@ -7,20 +7,15 @@ import {CommonModule} from "@angular/common"
 import { AuthentificationRoutingModule } from './authentification-routing.module'
 import { ConnexionComponent } from './connexion.component'
 import { MotPasseOublieComponent } from './mot-passe-oublie-component'
-import { CenterLayoutComponent } from './layout/center-layout.component'
+import { CenterLayoutComponent } from './core/center-layout.component'
 import { ResetMotPasseComponent } from './reset-mot-passe.component'
 import { ConnexionFormComponent }          from './form/connexion-form.component'
 import { DemandeMotPasseFormComponent }  from './form/demande-mot-passe-form.component'
 import { ResetMotPasseFormComponent } from './form/reset-mot-passe-form.component'
-import { MdInputValidDirective } from './form/md-input-valid.directive'
-import { FormValidityDirective }  from './form/form-validity.directive'
 import { AuthService }            from './authentification.service'
 import { ResetMotPasseService }   from './reset-mot-passe.service'
 
 import { SharedModule } from '../shared/shared.module'
-
-
-require('./assets/connexion-background.jpg')
 
 @NgModule({
     imports: [
@@ -39,9 +34,8 @@ require('./assets/connexion-background.jpg')
         ResetMotPasseComponent,
         ConnexionFormComponent,
         DemandeMotPasseFormComponent,
-        MdInputValidDirective,
         ResetMotPasseFormComponent,
-        FormValidityDirective
+
     ]
 })
 

@@ -6,7 +6,6 @@ import 'hammerjs'
 
 import  { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
-import { LayoutModule } from './layout/layout.module'
 import { SharedModule } from './shared/shared.module'
 import { HttpAuthService} from './core/http-authentification.service'
 
@@ -18,7 +17,6 @@ import { HttpResetMotPasseService } from './core/http-reset-mot-passe.service'
 @NgModule({
     imports: [
         BrowserModule,
-        LayoutModule,
         MaterialModule.forRoot(),
         FlexLayoutModule.forRoot(),
         SharedModule,

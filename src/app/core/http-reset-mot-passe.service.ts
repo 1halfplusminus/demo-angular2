@@ -12,7 +12,6 @@ export class HttpResetMotPasseService{
     }
     resetMotPasse(token:string,nouveauMotPasse:string,confirmationMotPasse:string)  : Observable <any>
     {
-        console.log(nouveauMotPasse,confirmationMotPasse)
         return this.http.modifieMotPasse(nouveauMotPasse,confirmationMotPasse,token).catch(this.handleHttpError)
     }
     private handleHttpError(err)

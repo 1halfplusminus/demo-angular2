@@ -1,11 +1,13 @@
-import {Component, ViewContainerRef} from '@angular/core'
+import {Component, ViewEncapsulation} from '@angular/core'
 import {Router} from "@angular/router";
 import {MdSnackBar,  MdSnackBarRef} from "@angular/material";
 
 @Component({
+    selector:'app-auth-page-oublie',
     templateUrl: './mot-passe-oublie.component.html',
     styleUrls: ['./mot-passe-oublie.component.scss'],
-    providers: [MdSnackBar]
+    providers: [MdSnackBar],
+    encapsulation: ViewEncapsulation.None
 })
 export class MotPasseOublieComponent  {
 

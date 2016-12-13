@@ -1,7 +1,7 @@
 import {
     Directive, Input, ElementRef, OnInit
 } from '@angular/core';
-import {FormGroup, AbstractControl} from "@angular/forms"
+import { FormGroup } from "@angular/forms"
 
 @Directive({
     selector: '[form-validity]',

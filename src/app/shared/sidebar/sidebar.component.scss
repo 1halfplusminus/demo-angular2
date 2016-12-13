@@ -1,0 +1,46 @@
+@import "../../core/style/common";
+
+app-sidebar{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  align-content: flex-start;
+  height: 100%;
+  // Title
+  @include app-logo(50px,28x,5px,5px);
+
+  .title{
+    flex: 1;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row;
+    display: flex;
+  }
+  // Navbar
+  .nav{
+    list-style: none;
+    padding: 0px;
+    text-align: center;
+    width: 100%;
+    margin-top: 15px;
+  }
+  .nav > li {
+    margin-bottom: 0px;
+  }
+  .nav > li > a {
+    position: relative;
+    cursor: pointer;
+    border-radius: 0px;
+  }
+  .nav li.active a{
+    background-color: rgb(3,155,229);
+    box-shadow: 0 12px 20px -10px rgba(156, 39, 176, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(156, 39, 176, 0.2);
+  }
+  .nav > li > a > p {
+    text-align: left;
+    overflow: hidden;
+  }
+
+}

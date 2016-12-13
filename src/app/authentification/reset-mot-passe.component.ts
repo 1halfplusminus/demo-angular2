@@ -1,12 +1,14 @@
-import {Component, OnInit, OnDestroy} from '@angular/core'
+import {Component, OnInit, OnDestroy, ViewEncapsulation} from '@angular/core'
 import {MdSnackBar, MdSnackBarRef} from "@angular/material";
 import {Router, ActivatedRoute} from "@angular/router";
 import {Subscription} from "rxjs";
 
 @Component({
+    selector:'app-auth-page-reset',
     templateUrl: './reset-mot-passe.component.html',
     styleUrls: ['./reset-mot-passe.component.scss'],
-    providers: [MdSnackBar]
+    providers: [MdSnackBar],
+    encapsulation: ViewEncapsulation.None
 })
 export class ResetMotPasseComponent implements OnInit,OnDestroy {
 

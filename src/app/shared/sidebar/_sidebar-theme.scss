@@ -1,0 +1,45 @@
+
+
+@mixin app-sidebar-theme($light-color,$dark-color,$background-color)
+{
+  app-sidebar{
+      background-color: $background-color;
+      box-shadow: 0 10px 30px -12px transparentize($dark-color,0.58)
+     , 0 4px 25px 0px transparentize($dark-color,0.88)
+     , 0 8px 10px -5px transparentize($dark-color,0.8);
+      md-toolbar{
+        background-color: transparentize($light-color,0.95);
+        box-shadow: 0 1px 3px 0 transparentize($dark-color,0.8)
+        ,0 1px 1px 0 transparentize($dark-color,0.86)
+        ,0 2px 1px -1px transparentize($dark-color,0.88);
+      }
+      .title{
+        color: $light-color;
+      }
+      .title:after {
+        background-color: transparentize($light-color, 0.2);
+      }
+
+      .nav > li > a > p {
+        color: transparentize($light-color,0.3);
+      }
+      .nav li.active > a{
+        color: $light-color;
+      }
+      .nav li.active > a > p{
+        color: $light-color;
+      }
+      .nav li.active > a > md-icon{
+        color: $light-color;
+      }
+      .nav > md-icon {
+        font-size: 24px;
+        //color: #3C4858;
+        color:$dark-color;
+      }
+      .nav>li>a:focus, .nav>li>a:hover {
+        text-decoration: none;
+        background-color: rgba(0,0,0,.1);
+      }
+  }
+}
