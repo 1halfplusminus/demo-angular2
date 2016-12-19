@@ -1,0 +1,20 @@
+<md-card fx-layout-align="center center">
+    <div class="profil-bar-item" fx-flex="25" fx-flex.xs="100" fx-layout="column" fx-layout-wrap >
+        <p fx-flex="35">{{utilisateur.nom}}</p>
+        <p class="grey-title">{{utilisateur.emploi}}</p>
+    </div>
+    <div class="profil-bar-item" fx-flex="25" fx-layout="column" fx-layout-wrap fx-hide="false" fx-hide.xs="true" >
+        <p>
+            Cafat
+            <md-icon>card_membership</md-icon>
+        </p>
+        <p class="grey-title">{{utilisateur.numeroCafat}}</p>
+    </div>
+    <div class="profil-bar-item" fx-flex="25" fx-hide="false" fx-hide.xs="true"  fx-layout="column" fx-layout-wrap >
+        <p>
+            Mutuelle
+            <md-icon>card_membership</md-icon>
+        </p>
+        <p class="grey-title">{{utilisateur.numeroMutuelle}}</p>
+    </div>
+</md-card>

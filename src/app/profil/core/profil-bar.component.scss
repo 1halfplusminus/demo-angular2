@@ -1,0 +1,23 @@
+profil-bar{
+  padding: 0px;
+  md-card{
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+  }
+  .grey-title{
+    margin-top: 3px;
+    font-size: 0.8em;
+    color: #9e9e9e !important;
+  }
+  p{
+    margin: 0px;
+    text-align: center;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+  }
+  md-icon{
+    color: black;
+  }
+}

@@ -1,38 +1,21 @@
 import { Injectable } from '@angular/core'
 import {Observable, Subject} from "rxjs"
 import {PayeHttpClient} from "./http-client.module"
+import {AuthService} from "../authentification/authentification.service";
 
-const loggedIn = 'logged_in'
 @Injectable()
-export class HttpAuthService{
+export class HttpAuthService extends AuthService {
 
-    private loggedIn = false
-    private loginSource = new Subject<any>();
 
-    private loginAnnonced$ = this.loginSource.asObservable()
-
-    constructor(private http : PayeHttpClient) {}
-
+    constructor(private http : PayeHttpClient) {
+        super()
+    }
     login(creds)
     {
-        return this.http.identifie(creds.email,creds.motPasse).catch((err)=>{
-            return Observable.throw(err.status);
-        }).map((res)=>{
-            this.loggedIn = true
-            this.loginSource.next(true)
+        return this.http.identifie(creds.email,creds.motPasse).map((token)=>{
+            this.saveToken(token)
             return true
         })
 
-    }
-    logout()
-    {
-        this.loggedIn = false
-    }
-    isLoggedIn(){
-        return this.loggedIn
-    }
-    onLogin() : Observable<any>
-    {
-        return  this.loginAnnonced$
     }
 }

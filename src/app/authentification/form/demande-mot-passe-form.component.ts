@@ -1,11 +1,11 @@
 import {Component, OnInit, Output, EventEmitter} from '@angular/core'
 import {FormGroup, FormBuilder, Validators} from "@angular/forms";
-import {ResetMotPasseService} from "../reset-mot-passe.service";
+import {ResetMotPasseService} from "../mot-passe-oublie/mot-passe-oublie.service";
 
 
 @Component({
     selector:'demande-mot-passe-form',
-    templateUrl: 'demande-mot-passe-form.component.html',
+    templateUrl: 'mot-passe-oublie-form.component.html',
     styleUrls: ['demande-mot-passe-form.component.scss'],
 })
 

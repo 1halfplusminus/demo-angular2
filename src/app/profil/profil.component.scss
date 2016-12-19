@@ -1,0 +1,61 @@
+
+app-profil-page{
+  display: flex;
+  flex: 1;
+  min-height: 100%;
+  .header{
+    padding: 24px;
+    background-size: 100% auto;
+    min-height: 150px;
+  }
+  //Topbar
+  .top-bar{
+    max-height: 10%;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
+    margin-bottom: 2px;
+  }
+  .name{
+    font-size: 24px;
+    color: #FFF;
+    align-self: center;
+  }
+  .avatar{
+    border-radius: 50%;
+    display: none;
+    height: auto;
+    width: auto;
+    font-size: 86px;
+    padding: 10px;
+  }
+  .user-info{
+    position: relative;
+    top: 69px;
+  }
+  //Main
+  .md-tab-label{
+    line-height: 56px;
+    height: 56px;
+  }
+  md-card-title:first-child {
+    margin-top: -24px;
+  }
+  md-tab-body{
+    padding: 20px;
+  }
+
+  @media (min-width: 600px) {
+    .header{
+      align-items: flex-start !important;
+      .avatar{
+        position: relative;
+        z-index: 1;
+        display: flex;
+      }
+    }
+  }
+  @media (min-width: 960px) {
+    .header{
+      min-height: 350px;
+    }
+  }
+}

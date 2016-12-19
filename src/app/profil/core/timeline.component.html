@@ -1,0 +1,21 @@
+<ul class="profil-timeline-list">
+    <li *ngFor="let bulletin of bulletins"
+        class="profil-timeline-item" track-scroll   visibleClass="bounce-in" hiddenClass="is-hidden">
+        <p class="profil-timeline-date">{{bulletin.date | date:'MMMM yyyy' | uppercase }}</p>
+        <p class="profil-timeline-line">
+            <md-icon>
+                library_books
+            </md-icon>
+        </p>
+        <p class="profil-timeline-box">
+            <span class="profil-timeline-title">
+                {{bulletin.libelle}}
+            </span>
+            <span  class="profil-timeline-button">
+                <button formtarget="_blank" md-mini-fab (click)="openBulletin(bulletin.url)"  >
+                    <md-icon class="md-24" >open_in_new</md-icon>
+                </button>
+            </span>
+        </p>
+    </li>
+</ul>

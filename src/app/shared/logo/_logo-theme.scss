@@ -1,0 +1,8 @@
+
+@mixin logo-theme($color){
+  .logo {
+    background-color: $color;
+    //TODO make a variable
+    color: white;
+  }
+}

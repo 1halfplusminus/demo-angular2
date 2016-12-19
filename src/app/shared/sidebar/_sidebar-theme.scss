@@ -1,6 +1,6 @@
 
 
-@mixin app-sidebar-theme($light-color,$dark-color,$background-color)
+@mixin app-sidebar-theme($light-color,$dark-color,$primary,$background-color)
 {
   app-sidebar{
       background-color: $background-color;
@@ -19,7 +19,10 @@
       .title:after {
         background-color: transparentize($light-color, 0.2);
       }
-
+      //Navbar item
+      .nav > li > a{
+        padding: 5px;
+      }
       .nav > li > a > p {
         color: transparentize($light-color,0.3);
       }
@@ -40,6 +43,10 @@
       .nav>li>a:focus, .nav>li>a:hover {
         text-decoration: none;
         background-color: rgba(0,0,0,.1);
+      }
+      // Navbar item active color
+      .nav li.active a{
+        background-color: $primary;
       }
   }
 }

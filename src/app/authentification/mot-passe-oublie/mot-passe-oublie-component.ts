@@ -4,8 +4,8 @@ import {MdSnackBar,  MdSnackBarRef} from "@angular/material";
 
 @Component({
     selector:'app-auth-page-oublie',
-    templateUrl: './mot-passe-oublie.component.html',
-    styleUrls: ['./mot-passe-oublie.component.scss'],
+    templateUrl: 'mot-passe-oublie.component.html',
+    styleUrls: ['mot-passe-oublie.component.scss'],
     providers: [MdSnackBar],
     encapsulation: ViewEncapsulation.None
 })

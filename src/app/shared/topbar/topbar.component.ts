@@ -1,4 +1,5 @@
 import {Component, ViewEncapsulation} from '@angular/core'
+import {AuthService} from "../../authentification/authentification.service";
 
 @Component({
     selector: 'app-topbar',
@@ -6,4 +7,13 @@ import {Component, ViewEncapsulation} from '@angular/core'
     styleUrls: ['topbar.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class TopbarComponent { }
+export class TopbarComponent {
+
+
+    constructor(private authService : AuthService){}
+
+    onLogout()
+    {
+        this.authService.logout()
+    }
+}

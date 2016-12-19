@@ -1,5 +1,3 @@
-@import "../../core/style/common";
-
 app-sidebar{
   display: flex;
   flex-direction: row;
@@ -9,8 +7,13 @@ app-sidebar{
   align-content: flex-start;
   height: 100%;
   // Title
-  @include app-logo(50px,28x,5px,5px);
-
+  md-toolbar-row{
+    justify-content: center;
+  }
+  .logo{
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
   .title{
     flex: 1;
     align-items: flex-start;
@@ -35,7 +38,6 @@ app-sidebar{
     border-radius: 0px;
   }
   .nav li.active a{
-    background-color: rgb(3,155,229);
     box-shadow: 0 12px 20px -10px rgba(156, 39, 176, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(156, 39, 176, 0.2);
   }
   .nav > li > a > p {

@@ -1,6 +1,6 @@
 import {Component, OnInit, Attribute, Output, EventEmitter, Input} from '@angular/core'
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {ResetMotPasseService} from "../reset-mot-passe.service";
+import {ResetMotPasseService} from "../mot-passe-oublie/mot-passe-oublie.service";
 
 
 @Component({

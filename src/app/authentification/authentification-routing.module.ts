@@ -1,8 +1,8 @@
 import { NgModule }             from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ConnexionComponent }   from './connexion.component'
-import { MotPasseOublieComponent } from './mot-passe-oublie-component'
-import { ResetMotPasseComponent } from './reset-mot-passe.component'
+import { ConnexionComponent }   from './connexion/connexion.component'
+import { MotPasseOublieComponent } from './mot-passe-oublie/mot-passe-oublie-component'
+import { ResetMotPasseComponent } from './mot-passe-oublie/reset-mot-passe.component'
 
 export const routes: Routes = [
     { path: '',

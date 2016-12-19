@@ -22,28 +22,24 @@ export class PayeHttpClient{
         urlSearchParams.append('mot_passe', motPasse);
         let body = urlSearchParams.toString();
         return this.http.post(this.url('utilisateur/identification'), body, options).map((res)=>{
-            if(res.status != 200)
-            {
-                throw res
-            }
-            else{
-                return res.json()['token_access']
-            }
-        });
+            let json = res.json()
+            let token = json['token_acces']
+            return token
+        }).catch(this.handleHttpError);
     }
     moi(token:string)
     {
         let headers = new Headers();
         headers.append('Authorization',`Bearer ${token}`);
         let options = new RequestOptions({ headers: headers });
-        return this.http.get(this.url('utilisateur/moi'),options);
+        return this.http.get(this.url('utilisateur/moi'),options).catch(this.handleHttpError).map(this.map);
     }
     bulletins(token:string)
     {
         let headers = new Headers();
         headers.append('Authorization',`Bearer ${token}`);
         let options = new RequestOptions({ headers: headers });
-        return this.http.get(this.url('utilisateur/bulletins'),options);
+        return this.http.get(this.url('utilisateur/bulletins'),options).catch(this.handleHttpError).map(this.map);
     }
     urlBulletin(idBulletin: number,token: string)
     {
@@ -54,7 +50,7 @@ export class PayeHttpClient{
         let headers = new Headers();
         headers.append('Authorization',`Bearer ${token}`);
         let options = new RequestOptions({ headers: headers });
-        return this.http.get(this.url('utilisateur/conges'),options);
+        return this.http.get(this.url('utilisateur/conges'),options).catch(this.handleHttpError);
     }
     private url(path:string)
     {
@@ -68,7 +64,7 @@ export class PayeHttpClient{
         urlSearchParams.append('redirectUri', window.location.host + '/connexion/reset-mot-passe');
         urlSearchParams.append('email', mail);
         let body = urlSearchParams.toString();
-        return this.http.post(this.url('motpasse/demander'), body, options).timeout(3000, new Error('timeout exceeded'));
+        return this.http.post(this.url('motpasse/demander'), body, options).timeout(3000, new Error('timeout exceeded')).catch(this.handleHttpError);
     }
     modifieMotPasse(nvMdp: string, confMdp: string, token:string): Observable<any>
     {
@@ -80,6 +76,14 @@ export class PayeHttpClient{
         urlSearchParams.append('mot_passe', nvMdp);
         urlSearchParams.append('mot_passe_confirmation', confMdp);
         let body = urlSearchParams.toString();
-        return this.http.post(this.url('motpasse/changer'), body, options);
+        return this.http.post(this.url('motpasse/changer'), body, options).catch(this.handleHttpError);
+    }
+    private handleHttpError(err)
+    {
+        return Observable.throw(err.status)
+    }
+    private map(res)
+    {
+        return res.json()
     }
 }

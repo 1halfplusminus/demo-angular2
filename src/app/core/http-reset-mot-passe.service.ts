@@ -8,14 +8,11 @@ export class HttpResetMotPasseService{
     constructor(private http: PayeHttpClient) {}
 
     demanderMotPasse(email: string) : Observable <any>{
-        return this.http.demandeMotPasse(email).catch(this.handleHttpError);
+        return this.http.demandeMotPasse(email)
     }
     resetMotPasse(token:string,nouveauMotPasse:string,confirmationMotPasse:string)  : Observable <any>
     {
-        return this.http.modifieMotPasse(nouveauMotPasse,confirmationMotPasse,token).catch(this.handleHttpError)
+        return this.http.modifieMotPasse(nouveauMotPasse,confirmationMotPasse,token)
     }
-    private handleHttpError(err)
-    {
-        return Observable.throw(err.status)
-    }
+
 }

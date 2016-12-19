@@ -13,11 +13,15 @@ import {Router} from "@angular/router";
 export class AppComponent implements OnDestroy {
 
     private loginSubscription : Subscription
+    private logoutSubscription : Subscription
 
     constructor(private authService:AuthService,private router: Router)
     {
         this.loginSubscription = authService.onLogin().subscribe(()=>{
             this.redirectToDashboard()
+        })
+        this.logoutSubscription = authService.onLogout().subscribe(()=>{
+            this.redirectToLogin()
         })
     }
     ngOnDestroy()
@@ -26,6 +30,10 @@ export class AppComponent implements OnDestroy {
     }
     redirectToDashboard()
     {
-        this.router.navigate(['/profil'])
+        this.router.navigate(['/'])
+    }
+    redirectToLogin()
+    {
+        this.router.navigate(['/connexion'])
     }
 }

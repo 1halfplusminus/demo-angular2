@@ -5,8 +5,8 @@ import {Subscription} from "rxjs";
 
 @Component({
     selector:'app-auth-page-reset',
-    templateUrl: './reset-mot-passe.component.html',
-    styleUrls: ['./reset-mot-passe.component.scss'],
+    templateUrl: 'reset-mot-passe.component.html',
+    styleUrls: ['reset-mot-passe.component.scss'],
     providers: [MdSnackBar],
     encapsulation: ViewEncapsulation.None
 })

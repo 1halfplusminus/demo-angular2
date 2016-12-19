@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import {Observable} from "rxjs";
-import { PayeHttpClient }from './http-client.module'
 
 const token_key = 'bfc_token'
 

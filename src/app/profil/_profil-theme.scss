@@ -1,0 +1,43 @@
+
+
+@mixin app-profil-theme($primary,$foreground-color,$background-color,$header-img)
+{
+  app-profil-page{
+    background-color: $background-color;
+    .header{
+      background: url($header-img) 0 45% no-repeat;
+    }
+    .name{
+      color: $foreground-color
+    }
+    md-card-title{
+      background-color: $primary;
+      color: transparentize($foreground-color,0.1);
+    }
+    .avatar{
+      background-color: $primary;
+    }
+  }
+}
+@mixin app-profil-timeline-theme($primary,$app-dark-foreground,$app-light-foreground)
+{
+  profil-timeline{
+    .profil-timeline-list{
+      .profil-timeline-line{
+        md-icon{
+          color: $app-dark-foreground;
+          background-color: $primary;
+        }
+      }
+      .profil-timeline-box {
+        background-color: $app-dark-foreground;
+        button{
+          background-color: $primary;
+        }
+        .profil-timeline-box-title{
+          color: $app-light-foreground
+        }
+      }
+    }
+  }
+}

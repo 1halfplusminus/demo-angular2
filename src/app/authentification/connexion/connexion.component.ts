@@ -4,8 +4,8 @@ import {MdSnackBar, MdSnackBarRef} from "@angular/material";
 
 @Component({
     selector:'app-auth-page-connexion',
-    templateUrl: './connexion.component.html',
-    styleUrls: ['./connexion.component.scss'],
+    templateUrl: 'connexion.component.html',
+    styleUrls: ['connexion.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
 export class ConnexionComponent  {

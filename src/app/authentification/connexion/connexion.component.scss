@@ -1,4 +1,4 @@
-@import "core/commun";
+@import "../shared/commun";
 
 app-auth-page-connexion{
   .container{
@@ -14,7 +14,7 @@ app-auth-page-connexion{
     font-size: 42px;
   }
   main md-card-subtitle{
-    margin-bottom: 0px;
+    margin-bottom: 25px;
   }
   nav md-card{
     padding: 128px 48px 48px;

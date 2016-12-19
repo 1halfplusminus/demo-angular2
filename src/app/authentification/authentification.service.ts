@@ -6,19 +6,29 @@ const loggedIn = 'logged_in'
 @Injectable()
 export class AuthService{
 
-    private loggedIn = false
+    public token : string
 
-    constructor(private router:Router)
+    protected loggedIn = false
+
+    protected loginSource = new Subject<any>();
+    protected logoutSource = new Subject<any>();
+
+    private loginAnnonced$ = this.loginSource.asObservable()
+    private logoutAnnonced$ = this.logoutSource.asObservable()
+
+    constructor()
     {
         this.loggedIn = localStorage.getItem(loggedIn) != null
+        this.token = localStorage.getItem(loggedIn)
     }
 
     login(creds) : Observable<any>
     {
         if(Math.random() >= 0.5)
         {
-            this.loggedIn = true
-            return Observable.of("legacy")
+            const token = 'legacy'
+            this.saveToken(token)
+            return Observable.of(token)
         }
         else{
             return Observable.throw(false)
@@ -28,6 +38,7 @@ export class AuthService{
     logout()
     {
         localStorage.removeItem(loggedIn)
+        this.logoutSource .next(true)
         this.loggedIn = false;
     }
     isLoggedIn() : boolean {
@@ -35,6 +46,18 @@ export class AuthService{
     }
     onLogin() : Observable<any>
     {
-        return Observable.of(true)
+        return this.loginAnnonced$
+    }
+    onLogout() : Observable<any>
+    {
+        return this.logoutAnnonced$
+    }
+    protected saveToken(token:string)
+    {
+        localStorage.removeItem(loggedIn)
+        localStorage.setItem(loggedIn,token)
+        this.token = token
+        this.loggedIn = true
+        this.loginSource.next(true)
     }
 }

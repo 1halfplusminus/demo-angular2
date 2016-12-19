@@ -1,0 +1,157 @@
+
+@mixin bounce-in {
+  //animation
+  visibility: visible;
+  animation: cd-bounce-1 0.6s;
+}
+profil-timeline {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  *, *:before, *:after {
+    box-sizing: border-box;
+  }
+
+  .profil-timeline-list{
+    padding: 40px 5px 0px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    .profil-timeline-item {
+      display: flex;
+      flex: 1 1 100%;
+      .profil-timeline-date {
+
+        flex: 0 1 45%;
+        position: relative;
+        padding-right: 25px;
+        font-size: 14px;
+        line-height: 2.5;
+        color: #aaa;
+        text-align: right;
+        order: 1;
+        display: none;
+      }
+      .profil-timeline-line {
+        flex: 0 1 5%;
+        padding: 0px 5px;
+        position: relative;
+        flex-direction: row;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        order: 2;
+        md-icon{
+          position: relative;
+          z-index: 1;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+          display: flex !important;
+          align-items: center;
+          justify-content: center;
+          top: 10%;
+          padding: 23px;
+        }
+      }
+      .profil-timeline-line:after{
+        content:"";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: calc(50% - 3px);
+        border-left: 3px solid #d7e4ed;
+      }
+      .profil-timeline-box {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        flex: 1 1 90%;
+        align-items: center;
+        justify-content: center;
+        order: 3;
+        font-size: 16px;
+        border-radius: 0.25em;
+        padding: 16px;
+        box-shadow: 0 3px 0 #d7e4ed;
+        margin-bottom: 50px;
+        margin-right: 10px;
+        margin-left: 10px;
+        .profil-timeline-title{
+          flex: 1 1 80%;
+        }
+        .profil-timeline-button{
+          flex: 0 0 15%;
+        }
+      }
+      .profil-timeline-item:last-child {
+        border: 0;
+      }
+    }
+    .profil-timeline-item.is-hidden{
+      visibility: hidden;
+      .profil-timeline-line:after{
+        visibility: visible;
+      }
+      .profil-timeline-line{
+        visibility: visible;
+      }
+      .profil-timeline-line md-icon{
+        visibility: hidden;
+      }
+    }
+    .profil-timeline-item.bounce-in{
+
+        .profil-timeline-date{
+          @include bounce-in();
+        }
+        .profil-timeline-box{
+          @include bounce-in();
+        }
+        .profil-timeline-line md-icon{
+          @include bounce-in();
+        }
+    }
+  }
+  //larger screen
+  @media (min-width: 960px)
+  {
+    .profil-timeline-list{
+      .profil-timeline-item {
+        height: 315px;
+        .profil-timeline-date {
+          display: flex;
+          align-items: flex-start;
+          justify-content: flex-end;
+        }
+        .profil-timeline-box {
+          max-width: 17%;
+          max-height: 50%;
+        }
+      }
+    }
+
+
+  }
+  @keyframes cd-bounce-1 {
+    0% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+
+    60% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+}

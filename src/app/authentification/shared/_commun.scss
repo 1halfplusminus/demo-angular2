@@ -1,5 +1,4 @@
-@import "../../core/style/_common.scss";
-@import "variables";
+@import "./variables";
 
 @each $page in $pages {
     app-auth-page-#{$page}{
@@ -8,7 +7,6 @@
             overflow: hidden;
             background-size: cover;
         }
-        @include app-logo(130px,86px,10px,20px);
     }
 }
 
