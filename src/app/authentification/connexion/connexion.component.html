@@ -1,7 +1,7 @@
-<div fx-layout="row" fx-flex-fill fx-flex="100">
-    <main fx-show="false" fx-show.lg="true" fx-flex="80" fx-flex-fill fx-layout-align="center center">
-        <div class="container" fx-flex="80" fx-flex-fill fx-layout-align="center center">
-            <md-card fx-flex fx-layout="column" fx-flex-fill fx-layout-align="start start">
+<div class="flex-container" fxLayout="row" fxFill fxFlex="100">
+    <main fxShow="false" fxShow.lg="true" fxFlex="80" fxFill fxLayoutAlign="center center">
+        <div class="container" fxFlex="80" fxFill fxLayoutAlign="center center">
+            <md-card fxFlex fxLayout="column" fxFill fxLayoutAlign="start start">
                 <md-card-subtitle>
                     <app-logo>
 
@@ -12,12 +12,12 @@
         </div>
 
     </main>
-    <nav fx-flex="20" fx-flex.xs="100" fx-flex.md="100" fx-flex.sm="100" fx-flex-fill fx-layout="column" fx-layout-align="center center">
-        <md-card fx-flex="100" fx-flex-fill >
-            <md-card-title fx-flex="10">
+    <nav fxFlex="20" fxFlex.xs="100" fxFlex.md="100" fxFlex.sm="100" fxFill fxLayout="column" fxLayoutAlign="center center">
+        <md-card fxFlex="100" fxFill >
+            <md-card-title fxFlex="10">
                 Connectez-vous à votre compte
             </md-card-title>
-            <div fx-flex="80" fx-layout="column" fx-flex-fill>
+            <div fxFlex="80" fxLayout="column" fxFill>
                 <connexion-form (onLogin)="onLogin()">
 
                 </connexion-form>

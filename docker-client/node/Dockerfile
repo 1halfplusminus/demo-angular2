@@ -50,18 +50,6 @@ RUN apk add --update alpine-sdk
 RUN npm i -g gulp && \
     rm -rf /tmp/*
 
-RUN npm i -g yarn \
-    && rm -rf /tmp/*
-
-RUN git clone https://github.com/angular/flex-layout flex-layout \
-    && cd flex-layout \
-    && yarn install \
-    && gulp build:components
-
-RUN cd flex-layout \
-    && mv dist/@angular/flex-layout /usr/src/app/@angular/flex-layout \
-    && rm -rf *
-
 WORKDIR /usr/src/app
 
 EXPOSE 8080

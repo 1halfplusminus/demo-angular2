@@ -1,4 +1,4 @@
-<form fx-flex="100" fx-flex-fill  fx-layout="row" fx-layout-wrap form-validity
+<form fxFlex="100" fxFill  fxLayout="row" fxLayoutWrap form-validity
       [(formErrors)]="formErrors"
       [(validationMessages)]="formValidations"
       [formGroup]="form"
@@ -9,14 +9,14 @@
               [md-input-validity]="form"
               type="email"
               placeholder="Email"
-              fx-flex="100"
+              fxFlex="100"
               formControlName="email"
         >
         <md-hint class="md-warn">
             {{formErrors.email || formErrors.problemeConnexion}}
         </md-hint>
     </md-input>
-    <button [disabled]="!form.valid" fx-flex="90" fx-flex.xs="100" md-raised-button color="primary">
+    <button [disabled]="!form.valid" fxFlex="90" fxFlex.xs="100" md-raised-button color="primary">
         Demandez un nouveau mot passe
     </button>
     <div class="valid" [hidden]="!submitted">
