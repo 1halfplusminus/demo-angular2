@@ -1,12 +1,13 @@
 import {ErrorHandler} from "@angular/core"
 
 import {PayeHttpClient} from "./core/http-client.module"
+
 //Auth
 import {ResetMotPasseService} from "./authentification/mot-passe-oublie/mot-passe-oublie.service"
 import {AuthService} from "./authentification/authentification.service"
 import {HttpAuthService} from "./core/http-authentification.service"
 import {HttpResetMotPasseService} from "./core/http-reset-mot-passe.service"
-
+import { AuthGuard  } from './core/guard.provider'
 //Utilisateur
 import {UtilisateurService} from "./profil/utilisateur.service"
 import {HttpUtilisateurService} from "./core/http-utilisateur.service"
@@ -24,7 +25,8 @@ export const test =[
     AuthService,
     UtilisateurService,
     ResetMotPasseService,
-    BulletinService
+    BulletinService,
+    AuthGuard
 ]
 
 export const production = [
@@ -41,5 +43,6 @@ export const production = [
     {
         provide:BulletinService,useClass: HttpBulletinService
     },
-    {provide: ErrorHandler, useClass: AppErrorHandler}
+    {provide: ErrorHandler, useClass: AppErrorHandler},
+    AuthGuard
 ]
