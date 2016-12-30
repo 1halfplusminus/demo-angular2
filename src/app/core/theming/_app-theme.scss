@@ -27,9 +27,6 @@
   //Profil theme
   @include app-profil-theme(md-color($app-primary),$app-dark-foreground,#F5F5F5,$app-background-image);
   @include app-profil-timeline-theme(md-color($app-primary),$app-dark-foreground,$app-light-foreground);
-  html{
-    background-color: md-color($app-primary);
-  }
   md-icon{
     color: $grey;
   }

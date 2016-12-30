@@ -13,4 +13,5 @@ import 'rxjs'
 // Other vendors for example jQuery, Lodash or Bootstrap
 // You can import js, ts, css, sass, ...
 import './app/assets/background.jpg'
+import './style.css'
 import moment = require("moment");

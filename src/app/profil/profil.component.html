@@ -1,13 +1,13 @@
-<main fxLayout-wrap fxLayout="column" fx-flex-fill fx-flex="88" fx-flex-order="2" fxLayout-align="start start">
-    <app-topbar class="top-bar"  fx-flex="66px" fx-flex-fill></app-topbar>
-    <div class="header" fxLayout="column" fx-flex="40" fx-flex.sm="20" fx-flex.xs="27"  fx-flex-fill fxLayout-align="end center">
-        <div class="user-info" fx-flex.sm="100" fx-flex.xs="100" fxLayout="row" fxLayout-align="start end">
-            <md-icon fx-flex="100" class="avatar">person</md-icon>
+<main fxLayoutWrap fxLayout="column" fxFill fxFlex="88" fxFlexOrder="2" fxLayoutAlign="start start">
+    <app-topbar class="top-bar"  fxFlex="66px" fxFill></app-topbar>
+    <div class="header" fxLayout="column" fxFlex="40" fxFlex.sm="20" fxFlex.xs="27"  fxFill fxLayoutAlign="end center">
+        <div class="user-info" fxFlex.sm="100" fxFlex.xs="100" fxLayout="row" fxLayoutAlign="start end">
+            <md-icon fxFlex="100" class="avatar">person</md-icon>
         </div>
     </div>
-    <profil-bar [utilisateur]="utilisateur" fx-flex="10" fx-flex.xs="15" fx-flex-fill fxLayout="row" ></profil-bar>
-    <profil-timeline fx-flex="40" fx-flex-fill fxLayout="row"></profil-timeline>
+    <profil-bar [utilisateur]="utilisateur" fxFlex="10" fxFlex.xs="15" fxFill fxLayout="row" ></profil-bar>
+    <profil-timeline fxFlex="40" fxFill fxLayout="row"></profil-timeline>
 </main>
-<div class="nav" fx-flex="13" fx-flex.sm="18" fx-flex-order="1">
+<div class="nav" fxFlex="13" fxFlex.sm="18" fxFlexOrder="1">
     <app-sidebar></app-sidebar>
 </div>
